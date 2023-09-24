@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.zoomrx.hybridappsync"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data  android:name="com.zoomrx.hybridappsync.HybridSyncAdapterInitializer"
+                android:value="androidx.startup" />
+        </provider>
+        <receiver android:name=".AppSyncBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.zoomrx.intent.action.FCM_HYBRID_APP_SYNC" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>
